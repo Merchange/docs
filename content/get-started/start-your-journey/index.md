@@ -1,25 +1,15 @@
----
-title: Start your journey
-intro: 'Learn the basics of {% data variables.product.github %}.'
-versions:
-  fpt: '*'
-  ghes: '*'
-  ghec: '*'
-topics:
-  - Pull requests
-  - Issues
-  - Notifications
-  - Accounts
-children:
-  - /about-github-and-git
-  - /creating-an-account-on-github
-  - /hello-world
-  - /setting-up-your-profile
-  - /finding-inspiration-on-github
-  - /downloading-files-from-github
-  - /uploading-a-project-to-github
-  - /git-and-github-learning-resources
-redirect_from:
-  - /github/getting-started-with-github/quickstart
-  - /get-started/quickstart
----
+rm(list = ls())
+setwd("file location")
+data <- read.csv("file.csv",sep=",",header=TRUE,row.names=1)
+data <- as.matrix(data)
+Sum <- apply(data,2,sum)
+new_data<-as.data.frame(matrix(NA,ncol = ncol(data),nrow = nrow(data)))
+rownames(new_data)=rownames(data)
+colnames(new_data)=colnames(data)
+for(i in 1:nrow(data)){
+  for(j in 1:ncol(data)){
+    new_data[i,j]=data[i,j]*1000/Sum[j]
+  }
+}
+write.table(new_data,file="Sumnor_hip.csv",sep=",",na=" ",row.names = TRUE, col.names = TRUE)
+
